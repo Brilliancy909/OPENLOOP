@@ -1,0 +1,30 @@
+{
+    "cmake.cmakePath": "cube-cmake",
+    "cmake.configureArgs": [
+        "-DCMAKE_COMMAND=cube-cmake"
+    ],
+    "cmake.preferredGenerators": [
+        "Ninja"
+    ],
+    "stm32cube-ide-clangd.path": "cube",
+    "stm32cube-ide-clangd.arguments": [
+        "starm-clangd",
+        "--query-driver=${env:CUBE_BUNDLE_PATH}/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-gcc*",
+        "--query-driver=${env:CUBE_BUNDLE_PATH}/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-g++*"
+    ],
+    "doxdocgen.c.triggerSequence": "/**",
+    "doxdocgen.c.firstLine": "/*",
+    "doxdocgen.c.commentPrefix": " * ",
+    "doxdocgen.c.lastLine": " */",
+    "doxdocgen.generic.order": [
+        "brief",
+        "custom"
+    ],
+    "doxdocgen.generic.briefTemplate": "@brief {text} ",
+    "doxdocgen.generic.generateSmartText": false,
+    "doxdocgen.generic.customTags": [
+        "@param ",
+        "@return  ",
+        "@note"
+    ]
+}

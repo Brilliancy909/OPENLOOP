@@ -1,0 +1,77 @@
+# clang-format 配置：依据 stm32-c-code-style/references/style-rules.md
+# 关键点：Allman 花括号、4 空格缩进、ColumnLimit:0（不自动换行，
+# 含行尾注释的长行保持原样不拆分）、控制关键字后加空格、指针 * 贴近变量名。
+---
+Language:        Cpp        # C 头文件中可能含 C++ 守卫，统一用 Cpp 解析更稳
+
+# ---------- 缩进 ----------
+IndentWidth:              4
+TabWidth:                 4
+UseTab:                   Never       # Tab 键插入空格
+ContinuationIndentWidth:  4
+IndentCaseLabels:         true        # case/default 相对 switch 体缩进一级（4 空格）
+IndentGotoLabels:         false       # goto 标签顶格
+IndentWrappedFunctionNames: false
+NamespaceIndentation:     None
+AccessModifierOffset:     -4
+
+# ---------- 行宽 ----------
+ColumnLimit:     0           # 0 = 不按列宽自动换行；行尾注释导致的长行保持不拆
+ReflowComments:  false       # 不重排注释内容
+
+# ---------- 花括号（Allman）----------
+BreakBeforeBraces: Allman    # { 与 } 各自独占一行
+AllowShortBlocksOnASingleLine: Empty   # 即使单语句也保留花括号
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine:  Never
+AllowShortLoopsOnASingleLine:         false
+AllowShortCaseLabelsOnASingleLine:    false
+AllowShortLambdasOnASingleLine:       None
+AllowShortEnumsOnASingleLine:         false
+
+# ---------- 空格 ----------
+SpaceBeforeParens: ControlStatements   # if/for/while/switch 后加空格，sizeof/typedef 不加
+SpaceAfterCStyleCast: false            # (uint8_t)data 不加空格
+SpaceBeforeSquareBrackets: false
+SpaceAroundPointerQualifiers: Default
+SpaceBeforeAssignmentOperators: true
+SpaceInEmptyBlock: false
+SpacesInCStyleCastParentheses: false
+SpacesInConditionalStatement: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesBeforeTrailingComments: 1
+BitFieldColonSpacing: Both
+
+# ---------- 指针 ----------
+PointerAlignment:       Right          # uint8_t *buffer（* 贴近变量名）
+DerivePointerAlignment: false
+
+# ---------- 对齐 ----------
+AlignAfterOpenBracket: Align
+AlignConsecutiveMacros:       Consecutive   # 连续 #define 的取值列对齐
+AlignConsecutiveAssignments:  false
+AlignConsecutiveBitFields:    false
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlines:        Left
+AlignOperands:               Align
+AlignTrailingComments:       true          # 相邻行尾注释左边界对齐
+
+# ---------- 运算符换行（开启以备手动续行时符合规范）----------
+BreakBeforeBinaryOperators: All           # 续行时运算符置于新行行首
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: true
+
+# ---------- include ----------
+IncludeBlocks:  Preserve
+SortIncludes:   Never                     # 不重排/排序 include，避免顺序依赖失效
+
+# ---------- 其他 ----------
+BinPackArguments:  true
+BinPackParameters: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+FixNamespaceComments: false
+Cpp11BracedListStyle: true
+CompactNamespaces: false
+DeriveLineEnding: false
