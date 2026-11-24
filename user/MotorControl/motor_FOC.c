@@ -79,10 +79,10 @@ void FOC_Init(void)
  */
 void FOC_Run(void)
 {
+    Clark_Transf(Current_UVW, &Current_Alpha_Beta); /* Clark变换 */
     Angle_To_Sin_Cos(rtX.theta_e, &Transf_Sin_Cos); /* 计算三角函数 */
 
-    Clark_Transf(Current_UVW, &Current_Alpha_Beta);
-    Park_Transf(Current_Alpha_Beta, Transf_Sin_Cos, &Current_DQ);
+    Park_Transf(Current_Alpha_Beta, Transf_Sin_Cos, &Current_DQ); /* Park变换 */
 
     Rev_Park_Transf(Volatage_DQ, Transf_Sin_Cos, &Volatage_Alpha_Beta); /* Revpark变换 */
     SVPWM_Calc(Volatage_Alpha_Beta, rtX.Udc, rtX.Tpwm);                 /* SVPWM */
@@ -259,4 +259,15 @@ void Park_Transf(Current_Alpha_Beta_DEF I_alpha_beta, Transf_Sin_Cos_DEF sin_cos
 {
     I_dq->Id = I_alpha_beta.Ialpha * sin_cos.Cos + I_alpha_beta.Ibeta * sin_cos.Sin;
     I_dq->Iq = -I_alpha_beta.Ialpha * sin_cos.Sin + I_alpha_beta.Ibeta * sin_cos.Cos;
+}
+
+/*
+ * @brief  
+ * @param 
+ * @return  
+ * @note
+ */
+void PID_Cal()
+{
+    
 }

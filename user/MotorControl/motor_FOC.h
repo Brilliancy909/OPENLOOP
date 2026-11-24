@@ -68,12 +68,12 @@ typedef struct
 extern ExtX rtX;
 extern ExtY rtY;
 
-extern Transf_Sin_Cos_DEF Transf_Sin_Cos;
-extern Volatage_DQ_DEF Volatage_DQ;
-extern Volatage_Alpha_Beta_DEF Volatage_Alpha_Beta;
-extern Current_UVW_DEF Current_UVW;               /* 当前UVW相电流 */
-extern Current_Alpha_Beta_DEF Current_Alpha_Beta; /* Clark变换输出 */
-extern Current_DQ_DEF Current_DQ;                 /* Park变换输出 */
+extern Transf_Sin_Cos_DEF Transf_Sin_Cos;           /* 当前电角度的sin cos值 */
+extern Volatage_DQ_DEF Volatage_DQ;                 /* 反Park变换输入 */
+extern Volatage_Alpha_Beta_DEF Volatage_Alpha_Beta; /* SVPWM输入 */
+extern Current_UVW_DEF Current_UVW;                 /* 当前UVW相电流 */
+extern Current_Alpha_Beta_DEF Current_Alpha_Beta;   /* Clark变换输出 */
+extern Current_DQ_DEF Current_DQ;                   /* Park变换输出 */
 
 /* 外部调用函数 */
 void FOC_Init(void);
